@@ -26,6 +26,7 @@
 \usepackage{multirow}
 \usepackage{paralist}
 \usepackage{float}
+\usepackage{pdfpages}
 
 \usepackage{longtable}
 \usepackage{makecell}
@@ -166,44 +167,45 @@ escapeinside={\%*}{*)}        % если нужно добавить комме�
   \selectlanguage{russian}
   \begin{spacing}{1}
     \pagenumbering{gobble} % disable page numbering
-    \input{pages/titlepage}% это титульный лист для диплома
+    \includepdf[pages=-]{Title.pdf}
+    % \input{pages/titlepage}% это титульный лист для диплома
   \end{spacing}
 
   \sloppy
   \setcounter{page}{2}
   \pagenumbering{arabic} % enable page numbering back
 
-  \chapter*{Реферат}
-    \input{pages/1-referat-ru.tex}
+  % \chapter*{Реферат}
+  %   \input{pages/1-referat-ru.tex}
 
-    \newpage
-  \chapter*{Abstract}
-    \begin{otherlanguage}{english}
-      \input{pages/1-referat-en.tex}
-    \end{otherlanguage}
+  %   \newpage
+  % \chapter*{Abstract}
+  %   \begin{otherlanguage}{english}
+  %     \input{pages/1-referat-en.tex}
+  %   \end{otherlanguage}
 
-    \newpage
-    \disableboldchapterintoc
-    \renewcommand{\contentsname}{\textbf{СОДЕРЖАНИЕ}}
-    \renewcommand{\cfttoctitlefont}{\hfill\Large}
+  \newpage
+  \disableboldchapterintoc
+  \renewcommand{\contentsname}{\textbf{СОДЕРЖАНИЕ}}
+  \renewcommand{\cfttoctitlefont}{\hfill\Large}
 
-    \tableofcontents
-    \newpage
-
-
-    % введение
-    \chaperWONum{Введение}
-    \input{pages/2-introduction.tex}
-
-    \input{pages/3-main-part.tex}
-
-    \chaperWONum{Заключение}
-    \input{pages/4-conclusion.tex}
+  \tableofcontents
+  \newpage
 
 
+  % введение
+  \chaperWONum{Введение}
+  \input{pages/2-introduction.tex}
 
-    \newpage
-    \chaperWONum{Список источников}
-    \printbibliography[heading=none]
+  \input{pages/3-main-part.tex}
+
+  \chaperWONum{Заключение}
+  \input{pages/4-conclusion.tex}
+
+
+
+  % \newpage
+  % \chaperWONum{Список источников}
+  % \printbibliography[heading=none]
 
 \end{document}
