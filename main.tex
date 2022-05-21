@@ -91,6 +91,13 @@
 
 \renewcommand{\cftdotsep}{1}
 
+\makeatletter
+\renewcommand\chapter{\par%
+  \thispagestyle{plain}%
+  \global\@topnum\z@
+  \@afterindentfalse
+  \secdef\@chapter\@schapter}
+\makeatother
 
 \usepackage{xargs}
 \newcommandx{\fig}[4][1=, 2=1, 3=]{
