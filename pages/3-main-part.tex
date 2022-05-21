@@ -1,41 +1,3 @@
-% \chapter{Название главы}
-%   \section{Названия секции}}
-%     \subsubsection{Название подсекции}}
-%       \paragraph{Название Параграфа}}
-%         \lipsum[2]\cite{BibExampleRU}
-%         \begin{center}
-%           \begin{xltabular}{\linewidth}{|l|X|}
-%             \caption{Long table caption.\label{long}}                                                                                                    \\
-%             \hline
-%             Столбик1  & Столбик2    \\
-%             \hline
-%             слово     & Слово       \\
-%             \hline
-%           \end{xltabular}
-%         \end{center}
-% \chapter{Название главы}
-%   \section{Названия секции}}
-%     \subsubsection{Название подсекции}}
-%       \paragraph{Название Параграфа}}
-%         \lipsum[2]\cite{BibExampleRU}
-%         \fig[Длинное название картинки из примера][0.5]{assets/example.drawio.png}
-%         \begin{center}
-%           \begin{xltabular}{\linewidth}{|l|X|}
-%             \caption{Long table caption.\label{long}}                                                                                                    \\
-%             \hline
-%             Столбик1  & Столбик2    \\
-%             \hline
-%             слово     & Слово       \\
-%             \hline
-%           \end{xltabular}
-%         \end{center}
-%         \begin{lstlisting}[caption={Название листинга}]
-% begin
-%   print('Hellow world!')
-% end
-%         \end{lstlisting}
-%         \begin{lstlisting}[language=JSON,caption={Название листинга}]
-
 \chapter{Обзор предметной области}
   \section{Актуальность}
     С глобальным распространением смартфонов карты стали неотъемлемой частью жизни человека, практически каждый имеет в кармане не только подробную и интерактивную карту местности, но и возможность построить маршрут до интересующей точки. Однако детализация существующих решений ограничивается автомобильными и крупными пешеходными дорогами. При этом пешеходные маршруты таких карт зачастую достаточно условны и не совпадают с реальным миром или же являются труднопроходимыми.
@@ -197,7 +159,6 @@
           \begin{lstlisting}[language=json,caption={Пример модели LABELS}]
 {
 "en": "Hello",
-"ru": "Привет",
 "de": "Hallo"
 }
           \end{lstlisting}
@@ -219,7 +180,7 @@
           Описывает возможное ограничение действующие на объект
           \begin{center}
             \begin{xltabular}{\linewidth}{|l|X|}
-              \caption{-}\\\hline
+              \caption{Виды ограничений}\\\hline
               Категория     & Описание                                                                   \\\hline
               employeesonly & Доступ разрешен для сотрудников имеющих пропуск                            \\\hline
               restricted    & Доступ ограничен для широкой публики, однако разрешен для каких либо групп \\\hline
@@ -257,7 +218,7 @@
     \subsubsection{Иерархическая структура IMDF}
       Несмотря на то, что нотация описывает модели в нормализованном формате, для лучшего понимания, следует рассматривать их как иерархическую структуру.
 
-      ![Иерархическая структура представления данных](./assets/src/imdf-hierarchy.drawio.svg)
+      \fig[Иерархическая структура представления данных][1]{assets/src/imdf-hierarchy.drawio.png}
 
       \begin{itemize}
         \item Самый верхний уровень представляет модель Venue это общее пространство отображаемой карты, в случае моего приложение -- весь кампус университета.
@@ -279,7 +240,7 @@
         Модель описывает все физические пространства на улице, такие как дороги, тротуары, газон, лес, тропинки. Аналогично комнатам Unit, модель EnvironmentUnit
         \begin{center}
           \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-            \caption{-}\\\hline
+            \caption{Модель уличного пространства}\\\hline
             Поле           & Тип                       & Описание                                                                                 \\ \hline
             name           & LABELS?                   & Официальное название места                                                               \\ \hline
             alt\_name      & LABELS?                   & Альтернативное название места, которое чаще всего используется в устной речи посетителей \\ \hline
@@ -310,7 +271,7 @@
         Якорь представляет собой точку, используемую в качестве предпочтительного местоположения отображения определенного удобства ссылающегося на него. Связывает точку в пространстве с конкретным местом (Unit).
         \begin{center}
           \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-            \caption{-}\\\hline
+            \caption{Модель уличного якоря}\\\hline
             Поле     & Тип   & Описание                                     \\ \hline
             unit\_id & UUID  & Идентификатор модели места (EnvironmentUnit) \\ \hline
           \end{xltabular}
@@ -320,7 +281,7 @@
         Уличное удобство моделирует физическое присутствие и местоположение объекта, который служит утилитарной цели или другому удобству. Аналогичен Amenity внутри помещений.
         \begin{center}
           \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-            \caption{-}\\\hline
+            \caption{Модель аннотации уличного удобства}\\\hline
             Поле        & Тип                          & Описание                                                                                    \\ \hline
             name        & LABELS?                      & Официальное название удобства                                                               \\ \hline
             alt\_name   & LABELS?                      & Альтернативное название удобства, которое чаще всего используется в устной речи посетителей \\ \hline
@@ -349,7 +310,7 @@
         Детализация моделирует наличие, местоположение и вид физического объекта, распознавание которого в значительной степени зависит от пространственного контекста. Например дорожная разметка, перепад высот, ступеньки, заборы и т.д. Аналогичен Detail внутри помещений.
         \begin{center}
           \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-            \caption{-}\\\hline
+            \caption{Модель уличной детализации}\\\hline
             Поле     & Тип                         & Описание              \\ \hline
             category & ENVIRONMENT-DETAIL-CATEGORY & Категория детализации \\ \hline
           \end{xltabular}
@@ -365,7 +326,7 @@
             parking.big       & Жирная разметка мест на парковке (обычно используется для запрещения парковки в определённых местах) \\ \hline
             fence.main        & Препятствие пешеходному маршруту в явно физическом виде (забор)                                      \\ \hline
             fence.heigth      & Неявное препятствие пешеходному маршруту (например резкий перепад высот)                             \\ \hline
-            steps             & Ступеньки                                                                                            \\ \hline
+            stpdf             & Ступеньки                                                                                            \\ \hline
           \end{xltabular}
         \end{center}
 
@@ -375,7 +336,7 @@
         Точка интереса, один из видов аннотации, указывает на область сильного интереса посетителей, позволяет отображать на карте изображение, чтоб выделяться среди остальных аннотаций. Рекомендуется ассоциировать со зданиями имеющими внутреннюю планировку.
         \begin{center}
           \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-            \caption{-}\\\hline
+            \caption{Модель аннотации точки интересе}\\\hline
             Поле        & Тип                 & Описание                                                                                                \\ \hline
             name        & LABELS?             & Официальное название точки интереса                                                                     \\ \hline
             alt\_name   & LABELS?             & Альтернативное название точки интереса, которое чаще всего используется в устной речи посетителей       \\ \hline
@@ -403,7 +364,7 @@
           Описывает вершину графа. Геометрия обязана быть Point согласно GeoJSON. Для бесшовного построения маршрута, внутри одного графа, вершины могут находиться как на улице, так и в помещение, для верного отображения маршрута, каждая вершина обладает информацией о своём нахождение. Для вершин внутри зданий, указывается идентификатор модели здания (Building) и этажа (Level) на котором находится вершина.
           \begin{center}
             \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-              \caption{-}\\\hline
+              \caption{Модель вершины графа маршрутов}\\\hline
               Поле        & Тип                   & Описание                                                                                                                                                                    \\ \hline
               builing\_id & UUID?                 & Идентификатор модели здания (Building) в котором находится вершина                                                                                                          \\ \hline
               level\_id   & UUID?                 & Идентификатор модели этажа (Level) в котором находится вершина                                                                                                              \\ \hline
@@ -430,7 +391,7 @@
           Перед поиском маршрута необходимо определить начальную и конечную вершину графа, для этого необходимо связать вершины графа с отображаемыми пользователю аннотациями, для этой задачи служит модель PathNodeAssociated.
           \begin{center}
             \begin{xltabular}{\linewidth}{|l|p{4cm}|X|}
-              \caption{-}\\\hline
+              \caption{Модель ассоциации вершин графа маршрутов с аннотациями}\\\hline
               Поле            & Тип  & Описание                                                                                                             \\ \hline
               path\_node\_id  & UUID & Идентификатор модели вершины маршрута (PathNode)                                                                     \\ \hline
               associeted\_id  & UUID & Идентификатор модели аннотации (Occupant/Amenity/Attraction/EnvironmentAmenity) ассоциированной с указанной вершиной \\ \hline
@@ -479,7 +440,7 @@
   \section{Пользовательский интерфейс}
     В разработке под iOS есть несколько вариантов верстки пользовательского интерфейса, важно перед началом разработки выбрать один из них и вести разработку в нём, так как переключиться по ходу разработки будет проблематично. Рассмотрим преимущества и недостатки каждого подхода
 
-    \subsubsection{Storyboard}
+    \paragraph{Storyboard}
       Базовый подход к созданию интерфейса, заключается в создание интерфейса с помощью специального конструктора в Xcode путём перетаскивания блоков на экран устройства. После запуска интерфейс конвертируется в UIKit объекты, к которым можно получить доступ с помощью специальных связок @IBOutlet
 
       \noindent Преимущества:
@@ -496,7 +457,7 @@
 
 
 
-    \subsubsection{Написание интерфейса кодом}
+    \paragraph{Написание интерфейса кодом}
       Подход похожий на Storyboard, однако подразумевает "ручное" создание UIKit объектов и размещение их друг относительно друга
 
       \noindent Преимущества:
@@ -514,7 +475,7 @@
       \end{itemize}
 
 
-    \subsubsection{SwiftUI}
+    \paragraph{SwiftUI}
       Библиотека для написания интерфейса с помощью декларативного кода
 
       \noindent Преимущества:
@@ -596,19 +557,13 @@ class Unit: Feature<Unit.Properties> {
     Для десереализации FeaturesCollection была написана функция decodeFeatures, с её помощью можно получить типизированный массив моделей
 
     \begin{lstlisting}[language=swift,caption={Пример десереализации массива комнат Units}]
-    let imdfUnits = try decodeFeatures(Unit.self, path: unitPath)
+let imdfUnits = try decodeFeatures(Unit.self, path: unitPath)
+static func decodeFeatures<T: IMDFDecodableFeature>(\_ type: T.Type, path: URL) throws -> [T] {
+let data = try Data(contentsOf: path)
+let geoJSONFeatures = try MKGeoJSONDecoder().decode(data)
 
-    static func decodeFeatures<T: IMDFDecodableFeature>(\_ type: T.Type, path: URL) throws -> [T] {
-    let data = try Data(contentsOf: path)
-    let geoJSONFeatures = try MKGeoJSONDecoder().decode(data)
-
-    guard let features = geoJSONFeatures as? [MKGeoJSONFeature] else {
-        throw IMDFError.invalidType
-      }
-
-    let imdfFeatures = try features.map { try type.init(feature: $0) }
-    return imdfFeatures
-    }
+guard let features = geoJSONFeatures as? [MKGeoJSONFeature] else { throw IMDFError.invalidType }
+let imdfFeatures = try features.map { try type.init(feature: $0) }
   \end{lstlisting}
 
   \section{Отображение карты}
@@ -624,38 +579,38 @@ class Unit: Feature<Unit.Properties> {
 
     Был выбран оптимальный с точки зрения сложности реализации и качества результата фреймворк MapKit от компании Apple, несмотря на некоторые сложности в отображение наложений, он уже предоставляет готовые механизмы взаимодействия с картой. Кроме того, готовый фрейморк позволяет отображать наложения поверх обычной карты города благодаря чему, высоко детализированный кампус органично впишется в общую карту.
 
-    \subsubsection{Отображение оверлея}
+    \subsubsection{Отображение наложений на карту}
       После десереализации с помощью MKGeoJSONDecoder, геометрия представляется в виде массива композиции [MKShape \& MKGeoJSONObject]
 
-      ![Диаграмма классов GeoJSON.geometry](./assets/src/imdf-shape.drawio.svg)
+      \fig[Диаграмма классов GeoJSON.geometry][1]{assets/src/imdf-shape.drawio.png}
 
-      Объекты геометрии полученные после декодирования удовлетворяют интерфейсу MKOverlay. После добавление на экран MKMapView, с помощью функции addOverlay(\_ overlay: MKOverlay) можно добавить геометрию для отображения на карте. После чего в делегате MKMapViewDelegate необходимо переопределить функцию mapView(\_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer, которая для каждого объекта геометрии должна вернуть потокобезопасный экземпляр MKOverlayRenderer. Фреймворк предоставляет готовые реализации MKOverlayRenderer для всех видов геометрии. Во время разработки я столкнулся с проблемой, что векторное отображение возможно только при использовании готовых реализаций, из-за этого возникают серьёзные проблемы с кастомизанией, например для MKLineRenderer невозможно указать цвет обводки.
-      Для базовой кастомизации я сделал интерфейс Styleble, который реализуют все виды наложения. Функция configurate(\_ renderer: MKOverlayRenderer) позволяет делегировать объектам карты конфигурацию компонента отрисовки.
+      Объекты геометрии полученные после декодирования удовлетворяют интерфейсу MKOverlay. После добавление на экран MKMapView, с помощью функции \textit{addOverlay(\_ overlay: MKOverlay)} можно добавить геометрию для отображения на карте. После чего в делегате MKMapViewDelegate необходимо переопределить функцию \textit{mapView(\_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer}, которая для каждого объекта геометрии должна вернуть потокобезопасный экземпляр MKOverlayRenderer. Фреймворк предоставляет готовые реализации MKOverlayRenderer для всех видов геометрии. Во время разработки я столкнулся с проблемой, что векторное отображение возможно только при использовании готовых реализаций, из-за этого возникают серьёзные проблемы с кастомизанией, например для MKLineRenderer невозможно указать цвет обводки.
+      Для базовой кастомизации я сделал интерфейс Styleble, который реализуют все виды наложения. Функция \textit{configurate(\_ renderer: MKOverlayRenderer)} позволяет делегировать объектам карты конфигурацию компонента отрисовки.
 
-      ![Диаграмма классов объектов наложение](./assets/src/imdf-objects-configurate.drawio.svg)
+      \fig[Диаграмма классов объектов наложение][1]{assets/src/imdf-objects-configurate.drawio.png}
 
       После чего, в функции делегата можно создать новый экземпляр MKOverlayRenderer, и сконфигурировать его приведя MKOverlay к интерфейсу Styleble
 
       \begin{lstlisting}[language=swift,caption={Реализация функции создания и конфигурации компонентов MKOverlayRenderer}]
-          func renderer(for overlay: MKOverlay) -> MKOverlayRenderer {
-          switch overlay {
-              case is MKMultiPolygon: return MKMultiPolygonRenderer(overlay: overlay)
-              case is MKPolygon: return MKPolygonRenderer(overlay: overlay)
-              case is MKMultiPolyline: return MKMultiPolylineRenderer(overlay: overlay)
-              case is MKPolyline: return MKPolylineRenderer(overlay: overlay)
-              default: return MKOverlayRenderer(overlay: overlay)
-            }
-        }
+func renderer(for overlay: MKOverlay) -> MKOverlayRenderer {
+  switch overlay {
+      case is MKMultiPolygon: return MKMultiPolygonRenderer(overlay: overlay)
+      case is MKPolygon: return MKPolygonRenderer(overlay: overlay)
+      case is MKMultiPolyline: return MKMultiPolylineRenderer(overlay: overlay)
+      case is MKPolyline: return MKPolylineRenderer(overlay: overlay)
+      default: return MKOverlayRenderer(overlay: overlay)
+    }
+}
 
-      func mapView(\_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
-          let renderer = renderer(for: overlay)
-          (overlay as? Styleble)?.configurate(renderer: renderer)
+func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+    let renderer = renderer(for: overlay)
+    (overlay as? Styleble)?.configurate(renderer: renderer)
 
-          return renderer
-        }
+    return renderer
+}
       \end{lstlisting}
 
-    \subsubsection{Отображение аннотаций}
+    \subsubsection{Отображение аннотаций на карте}
       Аннотации это текстовые сообщения, привязанные географическим координатам на карте. Добавляются на карту аналогично оверлею, фреймворк автоматически кеширует и переиспользует аннотации одного типа. Аннотации представляют собой UIView аналогичные тем, что используются для отображения всего остального интерфейса в UIKit.
       В моём приложении реализовано три типа аннотаций:
       \begin{itemize}
@@ -664,12 +619,13 @@ class Unit: Feature<Unit.Properties> {
         \item AttractionAnnotation -- используется для отображения точек интереса. Например: Главное здание
       \end{itemize}
 
-
-      ![Реализованные типы аннотаций](Картинка)
+      % \fig[Реализованные типы аннотаций][1]{assets/src/app-links.drawio.png}
+      % TODO: 
 
       Все аннотации поддерживают четыре вида размеров: скрыт, маленький, нормальный, большой. Определение размера относительно приближения карты делегируются экземпляру объекта DetailLevelProcessor, благодаря этому один тип аннотации может обладать разным уровнем детализации в зависимости от представляемого вида объекта. Кроме того каждая аннотация может находиться в состояние "выбрана" и в состояние "закреплена". Для переходов между всеми комбинациями состояний предусмотрены анимации.
 
-      ![Пример отображения разных состояний OccupantAnnotation](Картинка)
+      % \fig[Пример отображения разных состояний OccupantAnnotation][1]{assets/src/app-links.drawio.png}
+      % TODO: 
 
   \section{Интернационализация}
     Так как после смены языка операционная система принудительно перезапускает приложение, механизма для смены языка во время работы приложения делать не нужно.
@@ -699,13 +655,13 @@ class Unit: Feature<Unit.Properties> {
   \section{Universal Links}
     Для того чтобы на устройствах iOS ссылка открывалась не в браузере, а в приложение, была интегрирована технологии Universal Links \cite{UniversalLinks}. Для этого была включена поддержка ассоциации с доменами (Associated Domains) на портале разработчика, а так же в проекте Xcode в соответствующем разделе указан ассоциированный домен. После чего, при открытии ссылки, операционная система перенаправит пользователя на приложение, при этом передав ссылку в параметр userActivity у AppDelegate
 
-    \begin{lstlisting}[language=swift,caption={-}]
-    func application(\_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: [Any?] -> Void) -> Bool {
-        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL else { return false }
+    \begin{lstlisting}[language=swift,caption={Получение ссылки из Universal Links}]
+func application(\_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: [Any?] -> Void) -> Bool {
+  guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let url = userActivity.webpageURL else { return false }
 
-        print(url)
-        return true
-      }
+  print(url)
+  return true
+}
     \end{lstlisting}
 
   \section{AppClip}
@@ -732,41 +688,41 @@ class Unit: Feature<Unit.Properties> {
     Любой пользователь через установленное приложение может создать URL ссылку на маршрут и поместить её в QR или AppClip код, после чего, например, поместить в приглашение на мероприятие. Любой пользователь отсканировавший код, или перешедший по ссылке увидит этот маршрут на интерактивной карте.
     Если ссылка была открыта не на устройстве iOS, то откроется сайт с информацией о маршруте, иначе с использованием Universal Links будет открыта основная версия приложения, если она есть на устройстве или будет установлена и открыта блиц версия. После открытия будет проложен маршрут и отобразиться окно с информацией о нём.
 
-    ![Алгоритм открытия ссылки](./assets/src/app-links.drawio.svg)
+    \fig[Алгоритм открытия ссылки][1]{assets/src/app-links.drawio.png}
 
 \chapter{Серверная часть}
-  Для поддержки системы "поделиться маршрутом" и ещё некоторых незначительных функций приложения необходим веб сервер. Для приложения был зарегистрирован домен polymap.ru и разработан веб сервер с использованием языка NodeJS \cite{NodeJS} и фреймворка Express \cite{Express}. Через Let’s Encrypt \cite{Let’s Encrypt} были получены SSL сертификаты для поддержки протокола HTTPS.
+  Для поддержки системы "поделиться маршрутом"\ и ещё некоторых незначительных функций приложения необходим веб сервер. Для приложения был зарегистрирован домен polymap.ru и разработан веб сервер с использованием языка NodeJS \cite{NodeJS} и фреймворка Express \cite{Express}. Через Let’s Encrypt \cite{Let’s Encrypt} были получены SSL сертификаты для поддержки протокола HTTPS.
 
-  \subsubsection{AASA}
+  \subsubsection{Ассоциация домена с приложением}
     Для корректной работы Universal Links и AppClip необходимо ассоциировать приложение с доменом. Это означает, что на GET запрос по пути https://polymap.ru/.well-known/apple-app-site-association, должен вернуться текстовый файл, в котором должны быть записаны данные об ассоциации приложения в формате JSON. При этом сервер должен поддерживать протокол https. Пример файла:
 
-    \begin{lstlisting}[language=json,caption={-}]
-    {
-    "applinks": {
+    \begin{lstlisting}[language=json,caption={Файл ассоциации домена с приложением}]
+{
+  "applinks": {
     "details": [
-    {
-    "appIDs": [ "ABCDE12345.com.example.app", "ABCDE12345.com.example.app2" ],
-    "paths": ["/"]
-    }
+      {
+        "appIDs": [ "ABCDE12345.com.example.app" ],
+        "paths": ["/"]
+      }
     ]
-    }
-    }
+  }
+}
   \end{lstlisting}
 
     Для поддержки AppClip в вышеуказанный файл необходимо добавить соответствующий раздел:
 
-    \begin{lstlisting}[language=json,caption={-}]
-    {
-    ...
-    "appclips": {
+    \begin{lstlisting}[language=json,caption={Ассоциация домена с AppClip}]
+{
+  ...
+  "appclips": {
     "apps": ["ABCED12345.com.example.MyApp.Clip"]
-    }
-    }
+  }
+}
   \end{lstlisting}
 
     В момент открытия ссылки пользователем и наличие приложения ассоциированного с этой ссылкой, операционная система обращается к серверам Apple, которые обращаются к корневому домену ссылки и проверяют наличие ассоциации с приложением. Эта проверка кешируется на серверах Apple на 24 часа, что полностью снимает нагрузку с пользовательских серверов.
 
-    ![Диаграмма взаимодействия при открытии ссылки](./assets/src/open-url.drawio.svg)
+    \fig[Диаграмма взаимодействия при открытии ссылки][1]{assets/src/open-url.drawio.png}
 
   \subsubsection{Поддержка функции поделиться}
     Для того чтоб поделиться маршрутом необходимо передать следующие параметры:
@@ -791,7 +747,7 @@ class Unit: Feature<Unit.Properties> {
       Сложность генерации AppClip кодов состоит в том, что это закрытый формат представления данных и получить этот код можно только с помощью специальной CLI программы \cite{AppClipGenerator}, существующей только для системы MacOS. Из-за этого сгенерировать AppClip код прямо на устройстве не возможно, по этому генерация кода была вынесена на сервер. GET запрос на адрес polymap.ru/api/appclip-code генерирует и возвращает AppClip код, принимая следуюшие query параметры:
       \begin{center}
         \begin{xltabular}{\linewidth}{|l|p{3cm}|X|}
-          \caption{-}\\\hline
+          \caption{Поддерживаемые query параметры генератора AppClip кодов}\\\hline
           Параметр       & Пример & Описание                                                     \\ \hline
           id             & 5      & ID кода                                                      \\ \hline
           background     & fff    & Цвет фона в формате HEX                                      \\ \hline
@@ -810,5 +766,5 @@ class Unit: Feature<Unit.Properties> {
 
       Так как сервер запускается на операционной системе Linux, а программа для генерации существует только для MacOS, смысловая нагрузка когда, прерывистые окружности, в формате SVG предгенерирована на MacOS для каждого варианта ID, сервер берёт нужный файл и оформляет код согласно пришедшем параметрам. Данное решение уникально и не встречается ни в одном другом приложении.
 
-      ![Схема работы диалога поделиться](assets/src/share.drawio.svg)
+      \fig[Схема работы диалога поделиться][1]{assets/src/share.drawio.png}
 

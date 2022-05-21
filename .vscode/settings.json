@@ -20,6 +20,12 @@
 			"tools": [
 				"xelatexmk"
 			]
+		},		
+		{
+			"name": "process-svg",
+			"tools": [
+				"process-svg"
+			]
 		},
     ],
     "latex-workshop.latex.tools": [
@@ -36,5 +42,10 @@
 			],
 			"env": {}
 		},
+		{
+			"name": "process-svg",
+			"command": "./%DIR%/assets/process.sh",
+			"args": [],
+		}
     ]
 }
