@@ -51,12 +51,6 @@
 \usepackage{titletoc, amsmath, lastpage} %подключаем нужные пакеты расширений
 \usepackage[raggedright]{titlesec} % не переносить заголовки
 
-\makeatletter
-\renewcommand\large{\@setfontsize\large{14}{16}}
-\renewcommand\Large{\@setfontsize\Large{14}{16}}
-\renewcommand\Large{\@setfontsize\LARGE{14}{16}}
-\makeatother
-
 \titleformat{\chapter}[block]{\centering\Large\bfseries}{\MakeUppercase{\chaptertitlename}\ \thechapter . }{0pt}{\MakeUppercase}
 \titlespacing{\chapter}{0pt}{10pt}{6pt}
 
@@ -66,6 +60,9 @@
 \titleformat{\subsection}[block]{\centering\Large\bfseries\itshape}{\thesubsection . }{0pt}{}
 
 \titleformat{\subsubsection}[block]{\centering\itshape}{\thesubsubsection . }{0pt}{}
+
+\titleformat{\paragraph}[block]{\bfseries}{\theparagraph .}{0pt}{}
+\titlespacing{\paragraph}{0pt}{10pt}{0pt}
 
 \titleformat{\paragraph}[block]{\bfseries}{\theparagraph .}{0pt}{}
 \titlespacing{\paragraph}{0pt}{10pt}{0pt}
@@ -136,6 +133,7 @@
 \renewcommand{\theadalign}{vh}
 
 \newcommand{\chaperWONum}[1]{\chapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+\renewcommand\thesubfigure{\asbuk{subfigure}}
 
 \lstset{ %
 language=java,                % выбор языка для подсветки (здесь это С)
@@ -157,8 +155,6 @@ breaklines=true,              % автоматически переносить 
 breakatwhitespace=false,      % переносить строки только если есть пробел
 escapeinside={\%*}{*)}        % если нужно добавить комментарии в коде
 }
-
-\titlespacing{\chapter}{0pt}{10pt}{6pt}
 
 \input{custom-setup.tex}
 
