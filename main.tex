@@ -64,8 +64,6 @@
 \titleformat{\paragraph}[block]{\bfseries}{\theparagraph .}{0pt}{}
 \titlespacing{\paragraph}{0pt}{10pt}{0pt}
 
-\titleformat{\paragraph}[block]{\bfseries}{\theparagraph .}{0pt}{}
-\titlespacing{\paragraph}{0pt}{10pt}{0pt}
 
 % TABLE OF CONTENT CONFIG
 \usepackage{tocloft} 
@@ -97,6 +95,12 @@
   \global\@topnum\z@
   \@afterindentfalse
   \secdef\@chapter\@schapter}
+\makeatother
+
+\makeatletter
+\renewcommand\large{\@setfontsize\large{14}{16}}
+\renewcommand\Large{\@setfontsize\Large{14}{16}}
+\renewcommand\Large{\@setfontsize\LARGE{14}{16}}
 \makeatother
 
 \usepackage{xargs}
@@ -193,7 +197,6 @@ escapeinside={\%*}{*)}        % если нужно добавить комме�
     % введение
     \chaperWONum{Введение}
     \input{pages/2-introduction.tex}
-
 
     \input{pages/3-main-part.tex}
 
